@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    {% include 'emp/navbar.html' %}
+    <h1>Employee management</h1>
+    <h1>Employee Table</h1>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Employee id</th>
+          <th scope="col">Employee name</th>
+          <th scope="col">Employee address</th>
+          <th scope="col">Employee email</th>
+          <th scope="col">Employee phone</th>
+          <th scope="col">Employee department</th>
+          <th scope="col">Employee created</th>
+          <th scope="col">Employee action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in emp %}
+        <tr>
+          <td>{{a.employee_id}}</td>
+          <td>{{a.employee_name}}</td>
+          <td>{{a.employee_address}}</td>
+          <td>{{a.employee_email}}</td>
+          <td>{{a.employee_phone}}</td>
+          <td>{{a.employee_department}}</td>
+          <td>{{a.employee_created}}</td>
+          <td>
+            <a
+              href="/emp/delete-emp/{{a.employee_id}}"
+              class="btn btn-danger btn-sm"
+              >Delete</a
+            >
+            <a
+              href="/emp/update-emp/{{a.employee_id}}"
+              class="btn btn-dark btn-sm"
+              >Update</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
